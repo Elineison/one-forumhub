@@ -44,5 +44,13 @@ Projeto de API REST para um fórum de discussão, desenvolvido como parte do Cha
 - `PUT /topicos/{id}`: Atualizar tópico
 - `DELETE /topicos/{id}`: Excluir tópico
 
+## Demonstração dos testes de endpoints
+
+
+https://github.com/user-attachments/assets/bddba344-7b08-4038-a00e-520febae199e
+
+
 ## Autor
-Elineison
+Elineison Inacio
+
+LinkedIn: https://www.linkedin.com/in/elineison-inacio-de-sousa/
