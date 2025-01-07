@@ -45,4 +45,4 @@ Projeto de API REST para um fórum de discussão, desenvolvido como parte do Cha
 - `DELETE /topicos/{id}`: Excluir tópico
 
 ## Autor
-Seu Nome
+Elineison
