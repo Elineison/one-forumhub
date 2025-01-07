@@ -1,6 +1,6 @@
--- Inserir usuários
+-- Inserir usuários com senha criptografada
 INSERT INTO usuario (nome, email, senha) VALUES
-                                             ('João Silva', 'joao@email.com', '$2a$10$GVRc4.307KMzxTXWqEzQ7.LxE1kqyWRRtc5x8Kz1YIqfGNa/sCGAq'), -- senha: 123456
+                                             ('João Silva', 'joao@email.com', '$2a$10$GVRc4.307KMzxTXWqEzQ7.LxE1kqyWRRtc5x8Kz1YIqfGNa/sCGAq'),
                                              ('Maria Souza', 'maria@email.com', '$2a$10$GVRc4.307KMzxTXWqEzQ7.LxE1kqyWRRtc5x8Kz1YIqfGNa/sCGAq');
 
 -- Inserir cursos
