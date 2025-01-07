@@ -1,4 +1,6 @@
-# ForumHub - Projeto Challenge Backend
+![Badge-Spring](https://github.com/user-attachments/assets/e859a172-50b9-4c7c-a75f-0ec13caf8522)
+
+## ForumHub - Projeto Challenge Backend
 
 ## Descrição
 Projeto de API REST para um fórum de discussão, desenvolvido como parte do Challenge Backend da Alura.
