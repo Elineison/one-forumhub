@@ -27,17 +27,18 @@ public class AutenticacaoController {
 
     @PostMapping
     public ResponseEntity<TokenRespostaDTO> login(@RequestBody @Valid LoginDTO dto) {
-        // Cria token de autenticação
-        UsernamePasswordAuthenticationToken token =
-                new UsernamePasswordAuthenticationToken(dto.email(), dto.senha());
+        try {
+            UsernamePasswordAuthenticationToken authToken =
+                    new UsernamePasswordAuthenticationToken(dto.email(), dto.senha());
 
-        // Autentica
-        Authentication authentication = authenticationManager.authenticate(token);
+            Authentication authentication = authenticationManager.authenticate(authToken);
 
-        // Gera token JWT
-        String tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+            String tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
-        // Retorna token
-        return ResponseEntity.ok(new TokenRespostaDTO(tokenJWT));
+            return ResponseEntity.ok(new TokenRespostaDTO(tokenJWT));
+        } catch (Exception e) {
+            e.printStackTrace(); // Adicione log para depuração
+            return ResponseEntity.status(401).build();
+        }
     }
 }

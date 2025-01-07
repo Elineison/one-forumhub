@@ -1,7 +1,7 @@
--- Inserir usuários com senha criptografada
+-- Senhas criptografadas (123456)
 INSERT INTO usuario (nome, email, senha) VALUES
-                                             ('João Silva', 'joao@email.com', '$2a$10$GVRc4.307KMzxTXWqEzQ7.LxE1kqyWRRtc5x8Kz1YIqfGNa/sCGAq'),
-                                             ('Maria Souza', 'maria@email.com', '$2a$10$GVRc4.307KMzxTXWqEzQ7.LxE1kqyWRRtc5x8Kz1YIqfGNa/sCGAq');
+                                             ('João Silva', 'joao@email.com', '$2a$10$TRn7QU7UE/u6EwXJjJkOgumswpUxuExY/UNGRrp5udA2WwYUc2sX.'),
+                                             ('Maria Souza', 'maria@email.com', '$2a$10$TRn7QU7UE/u6EwXJjJkOgumswpUxuExY/UNGRrp5udA2WwYUc2sX.');
 
 -- Inserir cursos
 INSERT INTO curso (nome, categoria) VALUES

@@ -28,22 +28,33 @@ public class AutenticacaoFiltroJWT extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
-        // Recuperar token do cabeçalho
+        // Log para depuração
+        logger.info("Método da requisição: " + request.getMethod());
+        logger.info("URL da requisição: " + request.getRequestURL());
+
         String tokenJWT = recuperarToken(request);
 
-        // Se token existe, autenticar
+        // Log do token
+        logger.info("Token recuperado: " + tokenJWT);
+
         if (tokenJWT != null) {
-            String subject = tokenService.getSubject(tokenJWT);
-            var usuario = usuarioRepository.findByEmail(subject).orElseThrow();
+            try {
+                String subject = tokenService.getSubject(tokenJWT);
+                var usuario = usuarioRepository.findByEmail(subject)
+                        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-            var authentication = new UsernamePasswordAuthenticationToken(
-                    usuario, null, usuario.getAuthorities()
-            );
+                var authentication = new UsernamePasswordAuthenticationToken(
+                        usuario, null, usuario.getAuthorities()
+                );
 
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            } catch (Exception e) {
+                logger.error("Erro ao validar token", e);
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
         }
 
-        // Continuar o filtro
         filterChain.doFilter(request, response);
     }
 
@@ -51,7 +62,7 @@ public class AutenticacaoFiltroJWT extends OncePerRequestFilter {
         var authorizationHeader = request.getHeader("Authorization");
 
         if (authorizationHeader != null) {
-            return authorizationHeader.replace("Bearer ", "");
+            return authorizationHeader.replace("Bearer ", "").trim();
         }
 
         return null;
