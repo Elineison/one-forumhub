@@ -3,7 +3,7 @@
 ## ForumHub - Projeto Challenge Backend
 
 ## Descrição
-Projeto de API REST para um fórum de discussão, desenvolvido como parte do Challenge Backend da Alura.
+ForumHub é uma API REST desenvolvida para gerenciamento de tópicos de fórum. A aplicação permite operações CRUD (Create, Read, Update, Delete) para tópicos, com autenticação de usuários e controle de acesso.
 
 ## Tecnologias Utilizadas
 - Java 17
@@ -15,10 +15,12 @@ Projeto de API REST para um fórum de discussão, desenvolvido como parte do Cha
 - Hibernate/JPA
 
 ## Funcionalidades
+- Cadastro de novos tópicos
+- Listagem de tópicos
+- Detalhamento de tópicos
+- Atualização de tópicos
+- Exclusão de tópicos
 - Autenticação de usuários
-- CRUD de Tópicos
-- Controle de Acesso
-- Validação de Dados
 
 ## Configuração
 
